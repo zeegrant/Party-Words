@@ -1,0 +1,16 @@
+body {
+    background-color: pink;
+    text-align: center;
+}
+
+.intro {
+    border: 10px ridge magenta;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+}
+
+.intro p {
+    font: san-serif;
+    text-align: center;
+}   
