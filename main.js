@@ -1,7 +1,14 @@
  console.log('connected?')
  
+ const word = "pizza"
+ console.log(word)
 
- 
+ const renderArr = []
+for (let i = 0; i < word.length; i++) {
+    renderArr.push('_')
+}
+let wordEl = document.querySelector('#word')
+
  /*----- constants -----*/
 const getRandomWords = ['chips', 'soda', 'cakes', 'candy']
 // to do create random function that returns one word from this array.
@@ -18,8 +25,20 @@ for(let i = 0; i < btnContainerEl.length; i++) {  //iterating through all of the
     console.log(event.target.id)
     event.target.style.display= 'none' // add remove btn if not in word
     if (word.includes(event.target.id)) {
+      const idxArr = []
       console.log('hasLetter') // check if letter is in word
-
+      for (let i = 0; i < word.length; i++) {
+          if (word[i] === event.target.id) {
+              idxArr.push(i)
+          }
+      }
+      renderArr.forEach(function(empty, idx) {
+        if (idxArr.includes(idx)) {
+           renderArr[idx] = event.target.id
+        }
+    })
+    functionRender(renderArr.join(' '))
+      // console.log(idxArr)
     } else {
       console.log('doesNotHaveLetter')
       // remove ballon
@@ -34,40 +53,19 @@ for(let i = 0; i < btnContainerEl.length; i++) {  //iterating through all of the
   /*----- functions -----*/
 
 
-const word = "Chips"
-console.log(word)
+// const isIncluded = word.includes('z')
+// console.log(isIncluded)
 
-const isIncluded = word.includes('z')
-console.log(isIncluded)
+// functionRender(renderArr.join(' '))
+// console.log(renderArr)
 
-const renderArr = []
-for (let i = 0; i < word.length; i++) {
-    renderArr.push('_')
-}
-functionRender(renderArr.join(' '))
-console.log(renderArr)
 
-const idxArr = []
-for (let i = 0; i < word.length; i++) {
-    if (word[i] === 'a') {
-        idxArr.push(i)
-    }
-}
-console.log(idxArr)
+// console.log(idxArr)
 
-renderArr.forEach(function(empty, idx) {
-    if (idxArr.includes(idx)) {
-       renderArr[idx] = 'a'
-    }
-})
 
 // console.log(renderArr)
 
-functionRender(renderArr.join(' '))
-
+functionRender(renderArr.join(' ')) 
 function functionRender(string) {
-    let newEl = document.createElement('div')
-    newEl.textContent = string
-    let gameBody = document.querySelector('body')
-    gameBody.append(newEl)
+    wordEl.textContent = string
 }
