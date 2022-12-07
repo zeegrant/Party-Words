@@ -3,6 +3,10 @@ body {
     text-align: center;
 }
 
+keyboard {
+    color: rgb(167, 39, 125);
+}
+
 .intro {
     border: 10px ridge magenta;
     padding: 2px;
