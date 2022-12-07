@@ -3,7 +3,7 @@ console.log('connected?')
 // console.log(word)
  
 /*----- constants -----*/
-let snacks = ['chips', 'soda', 'cakes', 'candy', 'pizza']
+let snacks = ['chips', 'sodas', 'cakes', 'candy', 'pizza']
  
 const getRandomWord = (snacks) => {
  let randomIndex = Math.floor(Math.random() * snacks.length)
@@ -17,6 +17,9 @@ console.log(randomWord)
 // to do create random function that returns one word from this array.
  
  /*----- state variables -----*/
+
+ let tries = 6;
+
  const renderArr = []
 for (let i = 0; i < randomWord.length; i++) {
    renderArr.push('_')
@@ -50,6 +53,12 @@ for(let i = 0; i < btnContainerEl.length; i++) {  //iterating through all of the
      console.log('doesNotHaveLetter')
      // remove ballon
    }
+   tries--
+   console.log(tries)
+   if (randomWord === renderArr.join('') || tries === 0 ) {
+   winStatus()
+   }
+   document.getElementById("tries").innerHTML = tries;
  });
 }
  
@@ -75,4 +84,32 @@ for(let i = 0; i < btnContainerEl.length; i++) {  //iterating through all of the
 functionRender(renderArr.join(' '))
 function functionRender(string) {
   randomWordEl.textContent = string
+}
+
+
+// console.log('Your typed =>' answer)
+// 1. Check user answer against randomWord
+// 2. replace underscore where matchy is found
+
+// const isLetterInWord = (answer, randomWord) =>
+
+
+// while (tries > 0) {
+//   const answer = readlineSync.question('Type a letter: ')
+
+//   if (isLetterInWord(answer, randomWord)) {
+//     console.log('Yay!! that letter is in the word!')
+//   } else {
+//     tries--;
+//     console.log('Nope!! that letter is NOT in the word!')
+//   }
+// }
+
+function winStatus() {
+  console.log(randomWord, renderArr.join(''))
+  if (randomWord === renderArr.join('') && tries >= 0 ) {
+    document.getElementById("winloss").innerHTML = "Winner! Party Time!";
+  } else {
+    document.getElementById("winloss").innerHTML = "Lose! No Party for today!"
+  }
 }

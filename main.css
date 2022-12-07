@@ -1,20 +1,18 @@
 body {
-    background-color: pink;
+    background-color:rgba(208, 157, 208, 0.902);
     text-align: center;
+    color: rgba(47, 56, 230, 0.707);
 }
 
-keyboard {
-    color: rgb(167, 39, 125);
+button {
+    background: crimson;
+    color: pink;
 }
 
-.intro {
-    border: 10px ridge magenta;
-    padding: 2px;
-    display: flex;
-    flex-direction: column;
+p {
+    font-weight: bold; 
 }
 
-.intro p {
-    font: san-serif;
-    text-align: center;
-}   
+.randomWord {
+    font-size: 24px;
+}
